@@ -18,16 +18,44 @@ var server = http.createServer(function (req, res) {
     body += data;
   });
   req.on('end', function () {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    if (req.method === 'GET') {
-    } else if (req.method === 'POST') {
-      res.write(body);
+    if (req.method === 'POST') {
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      var result = {};
+      try{
+        var msg = JSON.parse(body);
+        // message format:
+        // {
+        //   cmd: 'on || off || toggle'
+        // }
+        switch (msg.cmd) {
+          case 'on':
+            result.result = 'ok';
+            break;
+          case 'off':
+            result.result = 'ok';
+            break;
+          case 'toggle':
+            result.result = 'ok';
+            break;
+          default:
+            result.result = 'error';
+            result.data = 'unknow command: ' + msg.cmd;
+            break;
+        }
+      }catch(err){
+        result.result = 'error';
+        result.data = err;
+      }
+    } else {
+      res.writeHead(200, {});
     }
+    res.write(JSON.stringify(result));
     res.end();
   });
 });
 
 server.listen(port,ip, function(){
   var address = server.address();
-  // console.log('Server running on ' + address.address + ':' + address.port);
+  console.log('Server running on ' +
+    address.address + ':' + address.port);
 });

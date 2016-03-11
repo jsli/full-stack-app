@@ -8,6 +8,7 @@
     "start": "bin/lighter"
   },
   "dependencies": {
+    "requestify": "0.1.17"
   },
   "license": "Apache-2.0"
 }
