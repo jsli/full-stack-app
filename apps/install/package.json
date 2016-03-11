@@ -1,13 +1,11 @@
 {
-  "name": "echo-server",
+  "name": "installer",
   "version": "1.0.0",
   "description": "",
   "author": "Manson Li <manson.li3307@gmail.com>",
   "main": "index.js",
-  "scripts": {
-    "start": "bin/echo-server"
-  },
   "dependencies": {
+    "haibu": "0.10.3"
   },
   "license": "Apache-2.0"
 }

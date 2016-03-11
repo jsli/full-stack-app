@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var haibu = require('haibu');
+var path = require('path');
 
 // Create a new client for communicating with the haibu server
 var client = new haibu.drone.Client({
@@ -11,21 +12,21 @@ var client = new haibu.drone.Client({
 // A basic package.json for a node.js application on Haibu
 var app = {
   "user": "manson",
-  "name": "echo-server",
+  "name": "lighter",
   "version": "1.0.0",
   "scripts": {
-    "start": "bin/echo-server"
+    "start": "bin/lighter"
   },
   "repository": {
     "type": "local",
-    "directory": "../"
+    "directory": path.join(__dirname, '..', '..', 'lighter')
   }
 };
 
 // Attempt to start up a new application
 client.start(app, function (err, result) {
   if (err) {
-    console.log('Error spawning app: ' + app.name);
+    console.error('Error spawning app: ' + app.name + ' -> ' + err);
   } else {
     console.log('Successfully spawned app:\n' +
       JSON.stringify(result, null, 2));

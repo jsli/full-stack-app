@@ -36,25 +36,25 @@ var server = http.createServer(function (req, res) {
   });
 });
 
-console.log('Initializing Server on ' + ip + ':' + port);
-console.log('This is a node.js echo service v' + version);
-console.log('node.js Production Mode: ' +
-  (nodeEnv == 'production' ? 'yes' : 'no'));
-console.log('node.js ' + process.version);
-console.log('Executed by npm: ' + (startedByNpm ? 'yes' : 'no'));
-console.log('Host: ' + os.hostname());
-console.log('OS Type: ' + os.type());
-console.log('OS Platform: ' + os.platform());
-console.log('OS Arch: ' + os.arch());
-console.log('OS Release: ' + os.release());
-console.log('OS Uptime: ' + os.uptime());
-console.log('OS Free memory: ' + os.freemem() / 1024 / 1024 + 'MB');
-console.log('OS Total memory: ' + os.totalmem() / 1024 / 1024 + 'MB');
-console.log('OS CPU count: ' + os.cpus().length);
-console.log('OS CPU model: ' + os.cpus()[0].model);
-console.log('OS CPU speed: ' + os.cpus()[0].speed + 'MHZ');
+// console.log('Initializing Server on ' + ip + ':' + port);
+// console.log('This is a node.js echo service v' + version);
+// console.log('node.js Production Mode: ' +
+//   (nodeEnv == 'production' ? 'yes' : 'no'));
+// console.log('node.js ' + process.version);
+// console.log('Executed by npm: ' + (startedByNpm ? 'yes' : 'no'));
+// console.log('Host: ' + os.hostname());
+// console.log('OS Type: ' + os.type());
+// console.log('OS Platform: ' + os.platform());
+// console.log('OS Arch: ' + os.arch());
+// console.log('OS Release: ' + os.release());
+// console.log('OS Uptime: ' + os.uptime());
+// console.log('OS Free memory: ' + os.freemem() / 1024 / 1024 + 'MB');
+// console.log('OS Total memory: ' + os.totalmem() / 1024 / 1024 + 'MB');
+// console.log('OS CPU count: ' + os.cpus().length);
+// console.log('OS CPU model: ' + os.cpus()[0].model);
+// console.log('OS CPU speed: ' + os.cpus()[0].speed + 'MHZ');
 
 server.listen(port,ip, function(){
   var address = server.address();
-  console.log('Server running on ' + address.address + ':' + address.port);
+  // console.log('Server running on ' + address.address + ':' + address.port);
 });

@@ -1,11 +1,11 @@
 {
-  "name": "echo-server",
+  "name": "lighter",
   "version": "1.0.0",
   "description": "",
   "author": "Manson Li <manson.li3307@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "start": "bin/echo-server"
+    "start": "bin/lighter"
   },
   "dependencies": {
   },

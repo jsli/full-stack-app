@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var haibu = require('haibu');
+var path = require('path');
+
+// Create a new client for communicating with the haibu server
+var client = new haibu.drone.Client({
+  host: process.env.HOST || '127.0.0.1',
+  port: 9002
+});
+
+// A basic package.json for a node.js application on Haibu
+var app = {
+  "user": "manson",
+  "name": "echo-server",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bin/echo-server"
+  },
+  "repository": {
+    "type": "local",
+    "directory": path.join(__dirname, '..', '..', 'echo-server')
+  }
+};
+
+// Attempt to start up a new application
+client.start(app, function (err, result) {
+  if (err) {
+    console.error('Error spawning app: ' + app.name + ' -> ' + err);
+  } else {
+    console.log('Successfully spawned app:\n' +
+      JSON.stringify(result, null, 2));
+  }
+});
