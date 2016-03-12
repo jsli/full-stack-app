@@ -6,9 +6,8 @@ var os = require('os')
 var port = process.env.PORT || process.env.port ||
   process.env.OPENSHIFT_NODEJS_PORT || 8000;
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var nodeEnv = process.env.NODE_ENV || 'unknown';
-var version = require('./package.json').version || 'unknown';
-var startedByNpm = !!process.env.npm_package_version;
+
+var FlameLighter = require('./lib/flame');
 
 var server = http.createServer(function (req, res) {
   var url_parts = url.parse(req.url, true);
@@ -29,12 +28,15 @@ var server = http.createServer(function (req, res) {
         // }
         switch (msg.cmd) {
           case 'on':
+            FlameLighter.on();
             result.result = 'ok';
             break;
           case 'off':
+            FlameLighter.off();
             result.result = 'ok';
             break;
           case 'toggle':
+            FlameLighter.toggle();
             result.result = 'ok';
             break;
           default:

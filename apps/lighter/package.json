@@ -8,7 +8,8 @@
     "start": "bin/lighter"
   },
   "dependencies": {
-    "requestify": "0.1.17"
+    "requestify": "0.1.17",
+    "shelljs": "0.6.0"
   },
   "license": "Apache-2.0"
 }
